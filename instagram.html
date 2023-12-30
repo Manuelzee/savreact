@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram Private Video</title>
+    <link
+      rel="shortcut icon"
+      id="favicon"
+      type="image/jpg"
+      href="assets/fav.png"
+    />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  </head>
+  <body>
+    <div>
+      <a href="index.html" class="btn btn-default btn-circle btn-xl">
+        <i class="fa fa-arrow-left"></i>
+      </a>
+      <div class="hero">
+        <h2>Instagram Private/Public Downloader</h2>
+      </div>
+      <section class="section-version-2">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+        <div class="wave wave4"></div>
+      </section>
+    </div>
+    <!-- Spinner -->
+    <div id="overlay">
+      <div  class="spinner1">
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player
+          src="spinner.json"
+          background="transparent"
+          speed="1"
+          loop
+          autoplay
+        ></lottie-player>
+      </div>
+    </div>
+    <div id="private-reels-download" class="tab-content current">
+      <div id="privatestory">
+        <div class="container mt-2 mb-3">
+          <div class="row">
+            <label for="link" class="text-center mb-1 private-label">
+              Paste the valid link here, a new tab will open.
+            </label>
+            <div class="col-12 col-lg-7">
+              <div class="input-group link-area">
+                <span class="input-group-text" id="basic-addon1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-link"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"
+                    />
+                    <path
+                      d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"
+                    />
+                  </svg>
+                </span>
+                <input
+                  name="link"
+                  class="form-control"
+                  placeholder="Paste valid link here..."
+                  type="text"
+                  required
+                  id="privateLink"
+                  value=""
+                  autocomplete="off"
+                />
+                <button
+                  type="reset"
+                  onclick="clearLinkInput()"
+                  class="input-group-text primary-button text-white"
+                >
+                  X
+                </button>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-5">
+              <button
+                style="width: 100%;"
+                class="btn primary-button mt-3 mt-lg-0 link-area"
+                type="button"
+                id="callApiButton"
+                onClick="callApi()"
+              >
+                <span class="download-button-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-box-arrow-right"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
+                    />
+                  </svg>
+                </span>
+                OPEN
+              </button>
+            </div>
+            <div id="analyzeContainer" style="display: none;">
+              <label for="response" style="width: 100%;" class="text-center mt-3 mb-1 private-label"
+                >Copy all alien text that you got on other tab and Paste it
+                here.</label
+              >
+              <div class="col-12">
+                <div class="input-group">
+                  <span class="input-group-text" id="basic-addon1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-braces"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M2.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C3.25 2 2.49 2.759 2.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6zM13.886 7.9v.163c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456V7.332c-1.114 0-1.49-.362-1.49-1.456V4.352C13.51 2.759 12.75 2 11.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6z"
+                      />
+                    </svg>
+                  </span>
+                  <textarea
+                    name="response"
+                    class="form-control input-md ht58"
+                    placeholder="Paste alien text here..."
+                    required
+                    id="response"
+                    autocomplete="off"
+                    rows="6"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="col-12 col-lg-6 mt-3 mb-3 offset-lg-3">
+                <button
+                  style="width: 100%;"
+                  class="btn primary-button link-area"
+                  type="submit"
+                  id="start"
+                  onclick="analyze()"
+                >
+                  <span class="download-button-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-search"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                      />
+                    </svg>
+                  </span>
+                  SEARCH
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="alertArea"></div>
+        <div class="container">
+          <!-- <div id="totalRes" class="row"></div> -->
+          <div class="table" id="totalResponse" style="display: none;">
+            <!-- <thead>
+              <tr>
+                <th>Type</th>
+                <th>Preview</th>
+                <th>Download</th>
+              </tr>
+
+            </thead> -->
+            <div id="tableID" class="grid-container ">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="loader-area" style="display: none;" id="loader-area">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+
+      <div class="col-12 mt-3 mb-2 text-center">
+        <strong
+          ><u
+            >Note: You should be logged in this browser</u
+          ></strong
+        >
+      </div>
+    </div>
+
+    <!-- Custom Dialog -->
+    <div class="popup popup-center">
+      <div class="icon">
+        <i class="fas fa-exclamation-triangle"></i>
+      </div>
+      <div class="title">
+        Error!!
+      </div>
+      <div class="description" id="description"></div>
+      <div class="dismiss-btn">
+        <button id="dismiss-popup-btn">
+          Dismiss
+        </button>
+      </div>
+    </div>
+
+    <!-- Custom Dialog -->
+    <div class="confirm-popup confirm-popup-center">
+      <div class="icon">
+        <i class="fas fa-exclamation-triangle"></i>
+      </div>
+      <div class="title">
+        Alert!!
+      </div>
+      <div class="description" id="confirm-description"></div>
+      <div
+        style="display: flex; justify-content: center; align-items: flex-end;"
+      >
+        <div class="ok-btn">
+          <button id="ok-popup-btn" onclick="privateMediaHandler()">
+            Ok
+          </button>
+        </div>
+        <div class="dismiss-btn">
+          <button id="confirm-dismiss-popup-btn">
+            Dismiss
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="waveWrapper2">
+      <div class="waveWrapperInner2 bgTop2">
+        <div
+          class="txtWave2 waveTop2"
+          style="
+            background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png');
+          "
+        ></div>
+      </div>
+    </div>
+    <div class="footer">
+      <div>
+        <footer class="footer2 pt-5">
+          <div class="main-container">
+            <div class="text-md-left mt-3">
+              <div class="row footer-top">
+                <div class="col-lg-4 col-xl-4 mx-auto contact">
+                  <h6 class="text-uppercase main-heading footer-app-title">
+                    All Video Downloader
+                  </h6>
+                  <p>
+                    <label class="footer-app-title">All video Downloader</label>
+                    downloads Youtube Videos, Youtube Playlists, Instagram
+                    videos, Facebook videos, that are truly useful.
+                  </p>
+
+                  <h5>Want to Report any Bug</h5>
+
+                  <div class="input-group my-4">
+                    <input
+                      id="emailinput"
+                      type="text"
+                      class="form-control py-2"
+                      placeholder="Enter your email address"
+                    />
+                    <div class="input-group-append">
+                      <a
+                        id="sendemailbtn"
+                        href="mailto:infusiblecoder@gmail.com?cc=$person?subject=Bug Reporting
+                                      &body=Enter Your Message Here"
+                        class="btn"
+                        type="button"
+                      >
+                        Send
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-2"></div>
+
+                <div class="col-lg-3 mx-auto">
+                  <h6 class="text-uppercase main-heading">Company</h6>
+
+                  <p>
+                    <a href="/">About Us</a>
+                  </p>
+                  <p>
+                    <a href="/">Portfolio</a>
+                  </p>
+
+                  <p>
+                    <a href="/">FAQ </a>
+                  </p>
+                </div>
+
+                <div class="col-lg-3 mx-auto">
+                  <h6 class="text-uppercase main-heading">Contact</h6>
+
+                  <p>
+                    <a href="/">Address: Madani Ave, usa 1212</a>
+                  </p>
+
+                  <p>
+                    <a href="/">Phone: +8802-55662000</a>
+                  </p>
+                  <p>
+                    <a href="/">Email: test@gmail.com</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="footer-bottom">
+              <div class="footer-copyright">
+                <a href="Terms.html">Terms of Service</a>
+                <a href="policy.html">Privacy Policy</a>
+              </div>
+              <div class="d-flex footer-bottom-icons">
+                <span class="icon"
+                  ><a
+                    href="https://www.facebook.com/"
+                    id="facebook"
+                    target="_blank"
+                  >
+                    <i class="fab fa-facebook fa-2x"></i>
+                  </a>
+                </span>
+                <span class="icon"
+                  ><a
+                    href="https://www.youtube.com/"
+                    id="youtube"
+                    target="_blank"
+                  >
+                    <i class="fab fa-youtube fa-2x"></i
+                  ></a>
+                </span>
+                <span class="icon">
+                  <a
+                    href="https://www.instagram.com/"
+                    id="instagram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><i class="fab fa-instagram fa-2x"></i
+                  ></a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script src="./js/firebase.js"></script>
+    <script src="./js/instagram.js"></script>
+    <script src="./js/settings.js"></script>
+  </body>
+</html>

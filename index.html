@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="shortcut icon" id="favicon" type="image/jpg" href="assets/fav.png" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125821249-1"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/regression/1.4.0/regression.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-125821249-1');
+    </script>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NL35ZBR');</script>
+    <!-- End Google Tag Manager -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/ricmoo/aes-js/e27b99df/index.js"></script>
+
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <title>Save React</title>
+</head>
+
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NL35ZBR"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Hero Section -->
+    <div>
+        <diV class="hero">
+            <h4 id="app-title">Save React</h4>
+            <p>
+                <label class="footer-app-title">Save React</label> downloads Youtube Videos, Youtube
+                Playlists, Instagram videos, Facebook videos,
+                that are truly
+                useful... 
+            </p>
+
+            <div class="search-container">
+                <span id="pastelink">
+                    <i class="fas fa-paperclip"></i>
+                </span>
+                <input placeholder="Enter Link of the Video e.g https://l.likee.video/v/qHXtjS" id="videoLink" />
+                <div id="downloadVideo">
+                    <span>
+                        <i class="fas fa-download"></i>
+                    </span>
+                </div>
+            </div>
+        </diV>
+
+        <section class="section-version-1">
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </section>
+
+    </div>
+
+
+    <!-- Instagram Private Media -->
+
+    
+    <!-- Spinner -->
+    <div id="overlay">
+        <div class="spinner1">
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+            <lottie-player src="spinner.json" background="transparent" speed="1" loop autoplay></lottie-player>
+        </div>
+    </div>
+
+    <!-- Playlist -->
+    <div class="container" style="display: none;" id="playlist">
+        <div class="card p-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <p class="py-2 note">Note: this website retrieves maximum of 50 videos.</p>
+
+                <div class="d-flex justify-content-center align-items-center">
+                    <span class="note">Change Quality</span>
+                    <div class="form-group mx-3 px-3">
+
+
+
+                        <select class="form-control" id="videoqualities">
+
+                            <!--  <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option> -->
+                        </select>
+                    </div>
+                    <button class="btn primary-button px-3" id="sortbutton">
+                        <i class="fas fa-sort "></i>
+                        Sort</button>
+                </div>
+            </div>
+            <table class="responsive__table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Download</th>
+                    </tr>
+                </thead>
+                <tbody id="playlistvideo">
+                    <!-- <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Result Section-->
+    <div class="mx-5 mb-5">
+        <div id="result" class="card" style="display: none;">
+            <!-- <div class="row justify-content-center my-4 mx-5">
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="down_file_preview mt-2" id="sc_view">
+                        <video controls=""
+                            src="https://video.like.video/eu_live/9u2/2QXvOX_4.mp4?crc=2932718031&amp;type=5"></video>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12 col-sm-12 px-lg-0">
+                    <div class="down_file_container mt-2 d-flex flex-column justify-content-between">
+                        <h3>Upcoming song 🥀&amp;hearts;️ @Aiman zaman 😘 #mujtabalakhani #LikeeParAao
+                            #LikeePakistan #Loveintheair </h3>
+                        <span><strong>Quality — </strong>1080p HD</span>
+                    </div>
+                </div>
+            </div> -->
+            <div class=" row">
+                <div class="col-md-5 text-center">
+                    <div id="info">
+                        <div id="divThumbnail">
+                            <div id="thumbnail">
+                                <!-- <video height="300px;" width="100%;" controls=""
+                                    src="https://video.like.video/eu_live/9u2/2QXvOX_4.mp4?crc=2932718031&amp;type=5"></video> -->
+                                <!-- <img alt="thumbnail" class="thumnail-img" src="placeholder.jpg" /> -->
+                            </div>
+                        </div>
+                        <div id="videoTitle" class="text-center">
+                            <b>
+                                <span id="title"></span>|
+                                <br />
+
+                                <span id="checkDuration">
+                                    <span class="mr-1"> Duration: </span>
+                                    <span id="videoDuration"></span>
+                                    <span class="ml-1"> minutes </span>
+                                </span>
+
+                            </b>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-7">
+                    <div id="response">
+                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item" id="videosTab">
+                                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
+                                    role="tab" aria-controls="pills-home" aria-selected="true">Videos</a>
+                            </li>
+                            <li class="nav-item" id="audiosTab">
+                                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
+                                    role="tab" aria-controls="pills-profile" aria-selected="false">Audios</a>
+                            </li>
+
+                        </ul>
+                        <!-- Videos -->
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                aria-labelledby="pills-home-tab">
+                                <div id="tabVideo" class="tabcontent" style="display: block;">
+                                    <table class="responsive__table">
+                                        <thead>
+                                            <tr>
+                                                <th>Quality</th>
+                                                <th>File size</th>
+                                                <th>Link</th>
+                                                <th>Mirror 1</th>
+                                                <th>Mirror 2</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="singleVideo">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Audios -->
+                            <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                                aria-labelledby="pills-profile-tab">
+                                <table class="responsive__table">
+                                    <thead>
+                                        <tr>
+                                            <th>Quality</th>
+                                            <th>File size</th>
+                                            <th>Link</th>
+                                            <th>Mirror 1</th>
+                                            <th>Mirror 2</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="singleAudio">
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Sanpchat  Section-->
+    <div class="mx-5 mb-5">
+        <div id="s-result" class="card" style="display: none;">
+            <!-- <div class="row justify-content-center my-4 mx-5">
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="down_file_preview mt-2" id="sc_view">
+                        <video controls=""
+                            src="https://video.like.video/eu_live/9u2/2QXvOX_4.mp4?crc=2932718031&amp;type=5"></video>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12 col-sm-12 px-lg-0">
+                    <div class="down_file_container mt-2 d-flex flex-column justify-content-between">
+                        <h3>Upcoming song 🥀&amp;hearts;️ @Aiman zaman 😘 #mujtabalakhani #LikeeParAao
+                            #LikeePakistan #Loveintheair </h3>
+                        <span><strong>Quality — </strong>1080p HD</span>
+                    </div>
+                </div>
+            </div> -->
+            <div class=" row">
+                <div class="col-md-5 text-center">
+                    <div id="info">
+                        <div id="divThumbnail">
+                            <div id="s-thumbnail">
+                                <!-- <video height="300px;" width="100%;" controls=""
+                                    src="https://video.like.video/eu_live/9u2/2QXvOX_4.mp4?crc=2932718031&amp;type=5"></video> -->
+                                <!-- <img alt="thumbnail" class="thumnail-img" src="placeholder.jpg" /> -->
+                            </div>
+                        </div>
+                        <div id="videoTitle" class="text-center">
+                            <b>
+                                <span id="s-title"></span>
+                                <br />                      
+                            </b>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-7">
+                    <div id="s-response">
+                        <ul class="nav s-nav-pills mb-3" id="s-pills-tab" role="tablist">
+                            <li class="nav-item" id="snapvideosTab">
+                                <a class="nav-link active" id="s-pills-home-tab" data-toggle="pill" href="#s-pills-home"
+                                    role="tab" aria-controls="s-pills-home" aria-selected="true">Videos</a>
+                            </li>
+                            <li class="nav-item" id="snapimagesTab">
+                                <a class="nav-link" id="s-pills-profile-tab" data-toggle="pill" href="#s-pills-profile"
+                                    role="tab" aria-controls="s-pills-profile" aria-selected="false">Images</a>
+                            </li>
+                        </ul>
+                        <!-- Videos -->
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="s-pills-home" role="tabpanel"
+                                aria-labelledby="pills-home-tab">
+                                <div id="tabVideo" class="tabcontent" style="display: block;">
+                                    <table class="responsive__table">
+                                        <thead>
+                                            <tr>
+                                                <th>Quality</th>
+                                                <th>File size</th>
+                                                <th>Link</th>
+                                               
+                                                <th>Mirror 1</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="s-singleVideo">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Images -->
+                            <div class="tab-pane fade" id="s-pills-profile" role="tabpanel"
+                                aria-labelledby="pills-profile-tab">
+                                <table class="responsive__table">
+                                    <thead>
+                                        <tr>
+                                            <th>Quality</th>
+                                            <th>File size</th>
+                                            <th>Link</th>
+                                            <th>Mirror 1</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="s-singleImage">
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Custom Dialog -->
+    <div class="popup popup-center">
+        <div class="icon">
+            <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <div class="title">
+            Error!!
+        </div>
+        <div class="description" id="description">
+        </div>
+        <div class="dismiss-btn">
+            <button id="dismiss-popup-btn">
+                Dismiss
+            </button>
+        </div>
+    </div>
+
+
+
+    <!-- HOW TO USE APP SECTION -->
+
+    <!-- Using Guide Video -->
+    <div class="main-container">
+        <div class="usingguide-feature">
+            <div class="row">
+                <div class="col-xl-6 ">
+
+                    <div class="videoWrapper videoWrapper169 js-videoWrapper">
+
+                        <iframe class="videoIframe js-videoIframe" src="" frameborder="0" allowTransparency="true"
+                            allowfullscreen data-src="https://streamable.com/e/xt0rk1"></iframe>
+
+                        <button class="videoPoster js-videoPoster"
+                            style="background-image:url(https://i.pcmag.com/imagery/articles/04oP7J3OIykTchX4vhU57vn-28.1569485834.fit_lim.jpg);">Play
+                            video</button>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="text-content" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <div class="step">
+                            <h2 itemprop="name">How to download videos?</h2>
+                            <div itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div class="step">
+                                    <div itemprop="text">
+                                        <ol>
+                                            <li><span>Find and paste the URL of the video in the input field</span></li>
+                                            <li>Click the “Download Icon” to start fetching The Download list.
+                                            </li>
+                                            <li>Choose the format you like ( mp3, mp4, webm, 3gp ) </li>
+                                            <li>Then click on Download button in
+                                                order to choose the preferred format. OR Force Download if download does
+                                                not start.</li>
+                                            <li>Now you can enjoy the videos and playlists offline! Works in Chrome,
+                                                Firefox, or any other browser.</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- what is this app -->
+    <div class="waveWrapper2 ">
+        <div class="waveWrapperInner2 bgTop2">
+            <div class="txtWave2 waveTop2"
+                style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div>
+        </div>
+    </div>
+    <div class="txt-box">
+        <h3 class="mb-5">What is <label class="footer-app-title">Save React</label>?</h3>
+        <p class="mw70"> <label class="footer-app-title">Save React</label> helps you save Youtube and other
+            websites videos to your device. You can
+            choose from a
+            variety of formats and qualities to download.</p>
+        <p class="mw70">Save React is a utility App for downloading user-uploaded videos from different
+            websites. First published
+            in 2020, it has a vast, diverse, worldwide community of users. It is used by journalists and human rights
+            organizations to save eyewitness videos, by educators to save videos for classroom use, by YouTubers to save
+            backup copies of their own uploaded videos, and by users worldwide to watch videos on hardware that can’t
+            run a standard web browser, or to watch videos in their full resolution over slow or unreliable Internet
+            connections. Save React stands in place of a Web browser and performs a similar function with
+            respect to
+            user-uploaded videos. Importantly, Save React does not decrypt video streams that are encrypted
+            with
+            commercial DRM technologies, that are used by subscription video sites.</p>
+    </div>
+    <div class="waveWrapper ">
+        <div class="waveWrapperInner bgTop">
+            <div class="txtWave waveTop"
+                style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div>
+        </div>
+    </div>
+
+    <!-- Supported Site and mobile screenshot -->
+    <div class="main-container mb-2">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <div class="download-guide-image">
+                    <img src="./assets/d.png" alt="instructions" id="mobilescreenshot">
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+
+            <div class="col-md-7">
+                <div class="supported-sites-container">
+                    <div class="supported-sites">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="using-guides">
+                                    <h3>Mobile </h3>
+                                    <ul>
+                                        <li>
+                                            Our Mobile Apps Coming Soon
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="playstore">
+                            <a target="_blank" id="playstoreurl"
+                                href='admin\assets\images\logo\App Store.png'><img
+                                    alt='Get it on Google Play'
+                                    src='client\admin\assets\images\logo\App Store.png'
+                                    width="300px" /></a>
+                        </div>
+
+
+
+                        <div class="supported-sites-icons-container">
+                            <h3>Supported Sites </h3>
+                            <div class="supported-sites-icons">
+                                <span>
+                                    <svg version="1.1" id="Layer_1" width="50" height="50"
+                                        xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                        viewBox="0 0 473.931 473.931">
+                                        <circle style=" fill: #0FB2BC" cx="236.966" cy="236.966" r="236.966" />
+                                        <path style=" fill: #0CAEB1" d="M404.522,69.38c92.541,92.549,92.549,242.593,0,335.142c-92.541,92.541-242.597,92.545-335.142,0
+                      L404.522,69.38z" />
+                                        <path style=" fill: #0BA0A0" d="M473.763,243.663L363.415,133.315l-49.268,49.268l-25.571-25.571l-34.611,34.611l-57.062-57.062
+                      l-24.321,24.321l-10.6-10.6l-61.84,61.84l122.853,122.853l-30.87,30.873l102.891,102.887
+                      C395.732,441.367,470.755,351.527,473.763,243.663z" />
+                                        <path style="fill: #fff;" d="M335.49,124.473c-40.572-1.325-68.029,21.437-82.405,68.306c7.405-3.05,14.597-4.591,21.616-4.591
+                      c14.795,0,21.343,8.303,19.596,24.958c-0.868,10.084-7.405,24.752-19.596,44.011c-12.243,19.285-21.384,28.916-27.457,28.916
+                      c-7.884,0-15.061-14.9-21.616-44.669c-2.2-8.763-6.125-31.087-11.757-67.015c-5.276-33.279-19.218-48.826-41.885-46.641
+                      c-9.59,0.879-23.951,9.657-43.124,26.278c-13.983,12.707-28.153,25.414-42.563,38.114l13.725,17.717
+                      c13.1-9.205,20.763-13.785,22.888-13.785c10.043,0,19.427,15.757,28.146,47.262c7.831,28.935,15.715,57.833,23.577,86.73
+                      c11.712,31.528,26.144,47.3,43.124,47.3c27.465,0,61.088-25.826,100.743-77.507c38.364-49.474,58.169-88.455,59.505-116.941
+                      C379.77,144.84,365.604,125.341,335.49,124.473z" />
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                    </svg>
+                                </span>
+
+                                <span class="icon"> <svg height="50" viewBox="0 0 512 512" width="50"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="m512 256c0 141.386719-114.613281 256-256 256s-256-114.613281-256-256 114.613281-256 256-256 256 114.613281 256 256zm0 0"
+                                            fill="#4a7aff" />
+                                        <path
+                                            d="m267.234375 511.738281c136.171875-5.878906 244.765625-118.121093 244.765625-255.738281 0-.996094-.027344-1.988281-.039062-2.984375l-177.699219-177.703125-190 198.59375 105.566406 105.566406-48.675781 66.183594zm0 0"
+                                            fill="#0053bf" />
+                                        <path
+                                            d="m334.261719 75.3125v57.96875s-66.554688-9.660156-66.554688 33.277344v42.9375h60.113281l-7.511718 65.480468h-52.601563v170.679688h-66.554687v-170.679688l-56.894532-1.074218v-64.40625h55.820313v-49.378906s-3.683594-73.457032 68.703125-86.949219c30.058594-5.605469 65.480469 2.144531 65.480469 2.144531zm0 0"
+                                            fill="#fff" />
+                                        <path
+                                            d="m334.261719 133.28125v-57.96875s-35.421875-7.75-65.480469-2.144531c-4.695312.875-9.0625 2.007812-13.136719 3.347656v369.140625h12.0625v-170.679688h52.597657l7.515624-65.480468h-60.113281s0 0 0-42.9375 66.554688-33.277344 66.554688-33.277344zm0 0"
+                                            fill="#dce1eb" />
+                                    </svg></i> </span>
+                                <span class="icon"> <i class="fab fa-youtube fa-3x"></i> </span>
+                                <span class="icon"> <svg height="50" viewBox="0 0 512 512" width="50"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="42.966156268"
+                                            x2="469.0337477" y1="469.0296477168" y2="42.9620562848">
+                                            <stop offset="0" stopColor="#ffd600" />
+                                            <stop offset=".5" stopColor="#ff0100" />
+                                            <stop offset="1" stopColor="#d800b9" />
+                                        </linearGradient>
+                                        <linearGradient id="b" gradientUnits="userSpaceOnUse" x1="163.0429956456"
+                                            x2="348.9539083464" y1="348.9538083312" y2="163.0428956304">
+                                            <stop offset="0" stopColor="#ff6400" />
+                                            <stop offset=".5" stopColor="#ff0100" />
+                                            <stop offset="1" stopColor="#fd0056" />
+                                        </linearGradient>
+                                        <linearGradient id="c" gradientUnits="userSpaceOnUse" x1="370.9291325432"
+                                            x2="414.3727849912" y1="141.0676714336" y2="97.6240189856">
+                                            <stop offset="0" stopColor="#f30072" />
+                                            <stop offset="1" stopColor="#e50097" />
+                                        </linearGradient>
+                                        <path
+                                            d="m510.460938 150.453125c-1.246094-27.25-5.574219-45.859375-11.902344-62.140625-6.425782-17.082031-16.503906-32.554688-29.527344-45.34375-12.785156-13.023438-28.261719-23.105469-45.34375-29.535156-16.285156-6.324219-34.890625-10.648438-62.140625-11.886719-27.300781-1.25-36.023437-1.546875-105.546875-1.546875s-78.246094.296875-105.546875 1.539062c-27.25 1.246094-45.855469 5.574219-62.140625 11.902344-17.082031 6.425782-32.554688 16.503906-45.34375 29.527344-13.023438 12.785156-23.105469 28.257812-29.535156 45.339844-6.324219 16.285156-10.648438 34.894531-11.886719 62.140625-1.25 27.304687-1.546875 36.023437-1.546875 105.546875 0 69.527344.296875 78.25 1.546875 105.550781 1.242187 27.246094 5.570313 45.855469 11.898437 62.140625 6.425782 17.078125 16.503907 32.554688 29.527344 45.339844 12.785156 13.023437 28.261719 23.101562 45.34375 29.527344 16.28125 6.332031 34.890625 10.65625 62.140625 11.902343 27.304688 1.246094 36.023438 1.539063 105.546875 1.539063 69.523438 0 78.246094-.292969 105.546875-1.539063 27.25-1.246093 45.855469-5.570312 62.140625-11.902343 34.386719-13.296876 61.570313-40.480469 74.867188-74.867188 6.332031-16.285156 10.65625-34.894531 11.902344-62.140625 1.242187-27.304687 1.539062-36.023437 1.539062-105.546875 0-69.527344-.296875-78.246094-1.539062-105.546875zm-46.082032 208.996094c-1.136718 24.960937-5.308594 38.515625-8.8125 47.535156-8.613281 22.328125-26.257812 39.972656-48.585937 48.585937-9.019531 3.503907-22.574219 7.675782-47.535157 8.8125-26.988281 1.234376-35.085937 1.492188-103.445312 1.492188-68.363281 0-76.457031-.257812-103.449219-1.492188-24.957031-1.136718-38.511719-5.308593-47.535156-8.8125-11.117187-4.105468-21.175781-10.648437-29.433594-19.152343-8.503906-8.257813-15.046875-18.3125-19.152343-29.433594-3.503907-9.019531-7.675782-22.574219-8.8125-47.535156-1.230469-26.992188-1.492188-35.089844-1.492188-103.445313 0-68.359375.261719-76.453125 1.492188-103.449218 1.140624-24.960938 5.308593-38.515626 8.8125-47.535157 4.105468-11.121093 10.652343-21.179687 19.152343-29.4375 8.257813-8.503906 18.316407-15.046875 29.4375-19.148437 9.019531-3.507813 22.574219-7.675782 47.535157-8.816406 26.992187-1.230469 35.089843-1.492188 103.445312-1.492188h-.003906c68.355468 0 76.453125.261719 103.449218 1.496094 24.960938 1.136718 38.511719 5.308594 47.535157 8.8125 11.117187 4.105468 21.175781 10.648437 29.433593 19.148437 8.503907 8.257813 15.046876 18.316407 19.148438 29.4375 3.507812 9.019531 7.679688 22.574219 8.816406 47.535157 1.230469 26.992187 1.492188 35.089843 1.492188 103.445312 0 68.359375-.257813 76.453125-1.492188 103.449219zm0 0"
+                                            fill="#ec4343" />
+                                        <path
+                                            d="m255.996094 124.539062c-72.601563 0-131.457032 58.859376-131.457032 131.460938s58.855469 131.457031 131.457032 131.457031c72.605468 0 131.460937-58.855469 131.460937-131.457031s-58.855469-131.460938-131.460937-131.460938zm0 216.792969c-47.125-.003906-85.332032-38.207031-85.328125-85.335937 0-47.125 38.203125-85.332032 85.332031-85.332032 47.128906.003907 85.332031 38.207032 85.332031 85.332032 0 47.128906-38.207031 85.335937-85.335937 85.335937zm0 0"
+                                            fill="#ec4343" />
+                                        <path
+                                            d="m423.371094 119.347656c0 16.964844-13.753906 30.71875-30.71875 30.71875-16.96875 0-30.722656-13.753906-30.722656-30.71875 0-16.96875 13.753906-30.722656 30.722656-30.722656 16.964844 0 30.71875 13.753906 30.71875 30.722656zm0 0"
+                                            fill="#ec4343" />
+                                    </svg> </span>
+                                <a href="siteslist.html">
+                                    <span style="cursor: pointer; fill: #000">
+                                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" x="0px"
+                                            height="50" width="50" y="0px" viewBox="0 0 512 512">
+                                            <g>
+                                                <g>
+                                                    <g>
+                                                        <path d="M256,0C114.615,0,0,114.615,0,256s114.615,256,256,256s256-114.615,256-256S397.385,0,256,0z M256,480
+                   C132.288,480,32,379.712,32,256S132.288,32,256,32s224,100.288,224,224S379.712,480,256,480z" />
+                                                        <circle cx="256" cy="256" r="32" />
+                                                        <circle cx="368" cy="256" r="32" />
+                                                        <circle cx="144" cy="256" r="32" />
+                                                    </g>
+                                                </g>
+                                            </g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </div>
+                           
+                        </div>
+                        <a href="instagram.html" >
+                         
+                        </a>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Footer Section -->
+    <div class="waveWrapper2 ">
+        <div class="waveWrapperInner2 bgTop2">
+            <div class="txtWave2 waveTop2"
+                style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div>
+        </div>
+    </div>
+    <div class="footer">
+        <div>
+            <footer class="footer2 pt-5">
+                <div class="main-container">
+                    <div class="text-md-left mt-3">
+                        <div class="row  footer-top">
+                            <div class="col-lg-4 col-xl-4 mx-auto contact ">
+                                <h6 class="text-uppercase main-heading footer-app-title">Save React</h6>
+                                <p>
+                                    <label class="footer-app-title">Save React</label> downloads Youtube
+                                    Videos,
+                                    Youtube Playlists,
+                                    Instagram videos,
+                                    Facebook videos, that are truly useful.
+                                </p>
+
+                                <h5>Have Issues Downloading?</h5>
+
+                                <div class="input-group my-4">
+                                    <input id="emailinput" type="text" class="form-control py-2"
+                                        placeholder="Enter your email address" />
+                                    <div class="input-group-append">
+                                        <a id="sendemailbtn" href="mailto:infusiblecoder@gmail.com?cc=$person?subject=Bug Reporting
+                                    &body=Enter Your Message Here" class="btn" type="button">
+                                            Send
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2 "></div>
+
+
+                            <div class="col-lg-3  mx-auto ">
+                                <h6 class="text-uppercase main-heading">Company</h6>
+
+                                <p>
+                                    <a href="www.savereact.live/#">About Us</a>
+                                </p>
+                                <p>
+                                    <a href="www.savereact.live/#">FAQ </a>
+                                </p>
+
+                            </div>
+
+                            <div class="col-lg-3 mx-auto">
+                                <h6 class="text-uppercase main-heading ">Contact</h6>
+
+                                <p>
+                                    <a href="/">Address: 3300 Raoul Wallenberg Place
+                                        Danbury, CT 06810</a>
+                                </p>
+
+                                <p>
+                                    <a href="/">Phone:+234 Anuwa Blessing</a>
+                                </p>
+                                <p>
+                                    <a href="/">Email:info@savereact.live</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer-bottom">
+                        <div class="footer-copyright">
+                            <a href="Terms.html">Terms of Service</a>
+                            <a href="policy.html">Privacy Policy</a>
+                        </div>
+                        <div class="d-flex footer-bottom-icons">
+                            <span class="icon"><a href="#" id="facebook" target="_blank"> <i
+                                        class="fab fa-facebook fa-2x"></i> </a>
+                            </span>
+                            <span class="icon"><a href="#" id="youtube" target="_blank">
+                                    <i class="fab fa-youtube fa-2x"></i></a> </span>
+                            <span class="icon"> <a href="#" id="instagram" target="_blank"
+                                    rel="noopener noreferrer"><i class="fab fa-instagram fa-2x"></i></a> </span>
+                        </div>
+                    </div>
+
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="./js/firebase.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/sitesApi.js"></script>
+    <script src="./js/youtubeApi.js"></script>
+    <script src="./js/snapchat.js"></script>
+    <script src="./js/settings.js"></script>
+</body>
+
+
+</html>
